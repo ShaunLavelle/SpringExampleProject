@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
   <racquet id="115" make="HEAD" model="GrapheneXT Instinct MP Blue White" cost="79.99" type="TENNIS" />
+  <racquet id="116" make="Prince" model="Prince Warrior 100" cost="84.90" type="TENNIS" />
+  <racquet id="117" make="Wilson" model="Wilson Ultra 103S" cost="135.99" type="TENNIS" />
+  <racquet id="118" make="Dunlop" model="Dunlop Biomimetic Black Widow" cost="65.00" type="TENNIS" />
 </dataset>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
   <player_racquet id="200" player_id="10" racquet_id="115"/>
-  <player_racquet id="201" player_id="11" racquet_id="115"/>
+  <player_racquet id="201" player_id="10" racquet_id="116"/>
+  <player_racquet id="202" player_id="10" racquet_id="117"/>
+  <player_racquet id="203" player_id="10" racquet_id="118"/>
+
+  <player_racquet id="301" player_id="11" racquet_id="115"/>
 </dataset>
