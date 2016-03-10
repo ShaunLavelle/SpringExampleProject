@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title> JavaScript Tutorial </title>
+	<script type="text/javascript">
+		var ROOT = "../../resources/images/";
+		var RACQUET = "TennisRacquet";
+		var ID = 1;
+		
+		var timer;
+		var image;
+		
+		function changeImage(img) {
+			
+			image=img;
+			
+			if(img.getAttribute("id") == "TennisRacquet1") {
+				img.setAttribute("src", ROOT + "TennisRacquet2.jpg");
+				img.setAttribute("id", RACQUET + "2");
+				img.setAttribute("onclick", "stopImage();");
+					ID++;
+			}
+			else {
+				img.setAttribute("src", ROOT + "TennisRacquet1.jpg");
+				img.setAttribute("id", RACQUET + "1");
+				ID--;
+			}
+		}
+		
+		function startImage() {
+			timer = setInterval('changeImage(document.getElementById(RACQUET + ID))', 50);
+		}
+		
+		function stopImage() {
+			clearInterval(timer);
+			image.setAttribute("onclick","startImage();");
+		}
+	</script>
+</head>
+<body>
+	<img src="../../resources/images/TennisRacquet1.jpg" alt="picture of tennis racquet" id="TennisRacquet1" onclick="startImage();" />
+</body>
+</html> 

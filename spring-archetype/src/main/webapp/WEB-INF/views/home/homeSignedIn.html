@@ -7,6 +7,21 @@
     <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    <script type="text/javascript">
+		var ROOT = "./resources/images/";
+		var RACQUET = "TennisRacquet";
+		
+		function changeImage(img) {
+			if(img.getAttribute("id") == "TennisRacquet1") {
+				img.setAttribute("src", ROOT + "TennisRacquet2.jpg");
+				img.setAttribute("id", RACQUET + "2");
+			}
+			else if(img.getAttribute("id") == "TennisRacquet2") {
+				img.setAttribute("src", ROOT + "TennisRacquet1.jpg");
+				img.setAttribute("id", RACQUET + "1");
+			}
+		}
+	</script>
 </head>
 <body>
 <div th:replace="fragments/header :: header">&nbsp;</div>
@@ -19,6 +34,7 @@
     <p>
         Welcome to the Spring MVC Quickstart application!
     </p>
+    <img src="./resources/images/TennisRacquet1.jpg" alt="picture of tennis racquet" id="TennisRacquet1" onmouseover="changeImage(this);" />
 </div>
 </body>
 </html>
