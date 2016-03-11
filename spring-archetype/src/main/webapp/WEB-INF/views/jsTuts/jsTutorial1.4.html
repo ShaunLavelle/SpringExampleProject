@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title> JavaScript Tutorial </title>
 	<script type="text/javascript">
-		var ROOT = "../../resources/images/";
+		var ROOT = "../../../resources/images/";
 		var RACQUET = "TennisRacquet";
 		var ID = 1;
 		
@@ -29,7 +29,7 @@
 		}
 		
 		function startImage() {
-			timer = setInterval('changeImage(document.getElementById(RACQUET + ID))', 50);
+			timer = setInterval('changeImage(document.getElementById(RACQUET + ID))', 8);
 		}
 		
 		function stopImage() {
@@ -39,6 +39,6 @@
 	</script>
 </head>
 <body>
-	<img src="../../resources/images/TennisRacquet1.jpg" alt="picture of tennis racquet" id="TennisRacquet1" onclick="startImage();" />
+	<img src="../../../resources/images/TennisRacquet1.jpg" alt="picture of tennis racquet" id="TennisRacquet1" onclick="startImage();" />
 </body>
 </html> 
