@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
 import org.junit.Test;
+import org.springframework.test.annotation.Rollback;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 
@@ -54,7 +55,7 @@ public class RacquetServiceTest extends AbstractIntegrationTest
    */
   @Test
   @Transactional
-//  @Rollback(false)
+  @Rollback(false)
   public void addNewRacquetTest()
   {
     Racquet racquet = new Racquet();

@@ -1,5 +1,6 @@
 package SpringWebApp.spring_archetype.sport.equipment.racquet;
 
+import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ public class RacquetServiceImpl implements RacquetService
   @Override
   public Racquet addNewRacquet(Racquet racquet)
   {
-    racquetDAO.save(racquet);
+    racquetDAO.saveRacquet(racquet);
     return racquet;
   }
 
@@ -22,5 +23,11 @@ public class RacquetServiceImpl implements RacquetService
   public Racquet retrieveRacquetById(Long id)
   {
     return racquetDAO.retrieveRacquetById(id);
+  }
+
+  @Override
+  public List<Racquet> retrieveAllRacquets()
+  {
+    return racquetDAO.retrieveAllRacquets();
   }
 }

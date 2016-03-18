@@ -1,17 +1,21 @@
 package SpringWebApp.spring_archetype.sport.equipment.racquet;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
+import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
+
 @Repository
-public class RacquetDAO
+public class RacquetDAO extends GenericDAOImpl<Racquet, Long>
 {
   @PersistenceContext
   private EntityManager entityManager;
   
-  public void save(Racquet racquet) 
+  public void saveRacquet(Racquet racquet) 
   {
     entityManager.persist(racquet);
   }
@@ -30,4 +34,10 @@ public class RacquetDAO
     }
     return racquet;
   }
+
+  public List<Racquet> retrieveAllRacquets()
+  { 
+    List<Racquet> racquets = super.findAll();
+    return racquets;
+  } 
 }

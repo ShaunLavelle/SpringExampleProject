@@ -15,6 +15,8 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
@@ -48,7 +50,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         messageSource.setCacheSeconds(5);
         return messageSource;
     }
-
+    
     @Bean
     public TemplateResolver templateResolver() {
         TemplateResolver templateResolver = new ServletContextTemplateResolver();
@@ -72,9 +74,28 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
         thymeleafViewResolver.setTemplateEngine(templateEngine());
         thymeleafViewResolver.setCharacterEncoding("UTF-8");
+        thymeleafViewResolver.setOrder(2);
         return thymeleafViewResolver;
     }
-
+    
+    @Bean
+    public FreeMarkerViewResolver freeMarkerViewResolver() {
+      FreeMarkerViewResolver freeMarkerViewResolver = new FreeMarkerViewResolver();
+      freeMarkerViewResolver.setPrefix(VIEWS);
+      freeMarkerViewResolver.setSuffix(".ftl");
+      freeMarkerViewResolver.setCache(true);
+      freeMarkerViewResolver.setOrder(1);
+      freeMarkerViewResolver.setRequestContextAttribute("rc");
+      return freeMarkerViewResolver;
+    }
+    
+    @Bean 
+    public FreeMarkerConfigurer freemarkerConfig() { 
+      FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer(); 
+      freeMarkerConfigurer.setTemplateLoaderPath("");
+      return freeMarkerConfigurer; 
+    }
+    
     @Override
     public Validator getValidator() {
         LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();

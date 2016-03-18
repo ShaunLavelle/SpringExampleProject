@@ -10,16 +10,35 @@
     <script type="text/javascript">
 		var ROOT = "./resources/images/";
 		var RACQUET = "TennisRacquet";
+		var ID = 1;
+		
+		var timer;
+		var image;
 		
 		function changeImage(img) {
+			
+			image=img;
+			
 			if(img.getAttribute("id") == "TennisRacquet1") {
 				img.setAttribute("src", ROOT + "TennisRacquet2.jpg");
 				img.setAttribute("id", RACQUET + "2");
+				img.setAttribute("onclick", "stopImage();");
+					ID++;
 			}
-			else if(img.getAttribute("id") == "TennisRacquet2") {
+			else {
 				img.setAttribute("src", ROOT + "TennisRacquet1.jpg");
 				img.setAttribute("id", RACQUET + "1");
+				ID--;
 			}
+		}
+		
+		function startImage() {
+			timer = setInterval('changeImage(document.getElementById(RACQUET + ID))', 20);
+		}
+		
+		function stopImage() {
+			clearInterval(timer);
+			image.setAttribute("onclick","startImage();");
 		}
 	</script>
 </head>
@@ -34,7 +53,7 @@
     <p>
         Welcome to the Spring MVC Quickstart application!
     </p>
-    <img src="./resources/images/TennisRacquet1.jpg" alt="picture of tennis racquet" id="TennisRacquet1" onmouseover="changeImage(this);" />
+    <img src="./resources/images/TennisRacquet1.jpg" alt="picture of tennis racquet" id="TennisRacquet1" onclick="startImage();" />
 </div>
 </body>
 </html>
